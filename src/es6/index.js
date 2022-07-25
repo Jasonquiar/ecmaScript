@@ -25,58 +25,72 @@
 
 //Nos permitir separar o unir varios elementos 
     
-    //Esta era la forma que usabamos antes de ES
+    //Esta era la forma que usabamos antes de ES6
     let hello = "Hello";
     let world = "World";
     let epicPhrase = hello + ' ' + world;
     console.log(epicPhrase);
 
-    //Y asi es como se usa despues de ES
+    //Y asi es como se usa despues de ES6
     //las comillas francesas se hacen con la combinacion alt + 96 ``
     let epicPhrase2 = `${hello} ${world}`;
     console.log(epicPhrase2);
 
 
-    let lorem = "Qui consequatur. Commodi. Ipsum vel duis yet minima \n"
-    + "otra frase epica que necesitamos."
+//Forma de hacer un string antes de ES6
+let lorem = "Qui consequatur. Commodi. Ipsum vel duis yet minima \n"
++ "otra frase epica que necesitamos."
 
-    // es6
-    let lorem2 = `otra frase epica que necesitamos
-    ahora es otra frase epica
-    `;
+// Con EC6
+let lorem2 = `otra frase epica que necesitamos
+ahora es otra frase epica
+`;
 
-    console.log(lorem);
-    console.log(lorem2);
+console.log(lorem);
+console.log(lorem2);
 
-    let person = {
-    'name': 'oscar',
-    'age': 32,
-    'country': 'MX'
-    }
 
-    console.log(person.name, person.age);
+//DETRUCCTURACIÓN
+//tenemos un objeto
+let person = {
+'name': 'oscar',
+'age': 32,
+'country': 'MX'
+}
 
-    let { name } = person;
-    console.log(name);
+// Antes de ES6
+console.log(person.name, person.age);
 
-    let team1 = ['Oscar', 'Julian', 'Ricardo'];
-    let team2 = ['Valeria', 'Yesica', 'Camila'];
+//Con ES6 lo obtenemos del objeto   
+let { name, age} = person;
+console.log(name, age);
 
-    let education = ['David', ...team1, ...team2];
+// Operador de propagacion - Spread Operator
+let team1 = ['Oscar', 'Julian', 'Ricardo'];
+let team2 = ['Valeria', 'Yesica', 'Camila'];
 
-    console.log(education);
+//Antes de ES6 se tenia que colocar cada uno de los elementos dentro del nuevo array en forma manueal,
+//ahora con los puntos suspensivos invocan al arreglo que queremos vincular en educación
 
-    {
-    var globalVar = "Global Var";
-    }
+let education = ['David', ...team1, ...team2];
 
-    {
-    let globalLet = 'Global Let';
-    console.log(globalLet);
-    }
+console.log(education);
 
-    console.log(globalVar);
 
-    const a = 'b';
-    a = 'a';
-    console.log(a);
+//Explicando el Hoisting  y el scope con diferentes bloques
+{
+var globalVar = "Global Var"; 
+}
+
+{
+let globalLet = 'Global Let';
+//esta constante solo puede ser invocada dentro de este scope si esta por fuera seria un undefine
+console.log(globalLet);
+}
+
+console.log(globalVar);
+
+// const sera una variable que no se puede cambiar este codigo nos generaria error
+const a = 'b';
+a = 'a';
+console.log(a);
