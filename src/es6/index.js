@@ -130,12 +130,12 @@
 
     //La listaOfNames2 representaba el caso de un solo elemento, pero arroy function puede hacerce con varios elementos así:
     const listOfNames3 = (name, age, country) => {
-    ... //Aca va la function  correspondiente
+        //Aca va la function  correspondiente
     }
     
     // Cuando solo se pasa un solo elemetnto 
     const listOfNames4 = name => {
-    ...
+        // Acá va la function correspondiente
     }
 
     // Utilizadon arroy function con una nueva funtion ya no se usa bloque de llaves {}
@@ -161,35 +161,49 @@
     .catch(error => console.log(error));
 
 //CLASES EN JAVASCRIPT
+    //
     class calculator {
-    constructor() {
-        this.valueA = 0;
-        this.valueB = 0;
+        //Se agregan dos variables dentro del scope global
+        constructor() {
+            this.valueA = 0;
+            this.valueB = 0;
+        }
+        //Metodo de sumar utilizado los valores de constructor
+        sum(valueA, valueB) {
+            this.valueA = valueA;
+            this.valueB = valueB;
+            return this.valueA + this.valueB;
+        }
     }
-    sum(valueA, valueB) {
-        this.valueA = valueA;
-        this.valueB = valueB;
-        return this.valueA + this.valueB;
-    }
-    }
+        // Asi podemos utilizar la clase como un new
+        const calc = new calculator();
+        console.log(calc.sum(2, 2));
 
-    const calc = new calculator();
-    console.log(calc.sum(2, 2));
 
+//MODULOS
+    // Creando un archivo adicional para usar el modo podemos tener logica separada del hilo principal
+    // como en el archivo module.js exportamos la function hello podemos usar dicho codigo con la palabra import
     import { hello } from './module';
 
     hello();
 
+
+//GENERATOR
+// UN generator es una function especial que retorna una serie de valor según el algoritmo definido cada vez que se use un .next segira en la function logica subsiguiente 
+    
+    //con el * al frente de la palabra reservado function definimos que la funcion es una function generator
     function* helloWorld() {
-    if (true) {
-        yield 'Hello, ';
-    }
-    if (true) {
-        yield 'World';
-    }
+        if (true) {
+            //yield nos permite retornar algo y lo guarda de forma interna qeu sirve para guardar la informacion de la primera iteración 
+            yield 'Hello, ';
+        }
+        if (true) {
+            yield 'World';
+        }
     };
 
     const generatorHello = helloWorld();
+    // Con .next que va a permiter usar la primera logica y obtener el valor y cuando se vuelve a ejecutar .next va a recordar la asignación logica y mostrarte el segundo valor 
     console.log(generatorHello.next().value);
     console.log(generatorHello.next().value);
-    console.log(generatorHello.next().value);
+    console.log(generatorHello.next().value); // En esta linea se vera Undefined ya que la function helloWorld solo tiene dos funciones
