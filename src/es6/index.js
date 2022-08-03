@@ -94,3 +94,102 @@
     const a = 'b';
     a = 'a';
     console.log(a);
+
+// PARAMETROS EN OBJETOS 
+//Propiedad de objetos mejorada que nos ayuda a declarar objetos de una forma mas sencilla 
+
+    //Antes de EC6
+
+    let nombre = 'oscar';
+    let edad = 32;
+    obj = { nombre: nombre, edad: edad };
+
+    // Desdpues de es6
+    obj2 = { nombre, edad };
+    console.log(obj2);
+
+
+// ARROY FUNCTION o Funciones de tipo flecha
+// Solventa un problemas particular o trabajar con dos elemento: una sintaxis mas reducida y un This no vinculabre
+
+
+    const names = [
+    { name: 'Oscar', age: 32 },
+    { name: 'Yesica', age: 27 }
+    ]
+    
+    // Para trabajar con los anteriores objetos de la const names antes de EC6 donde pasabamos una function anonima y recibiamos el elemento para luego pasar por la consola
+     let listOfNames = names.map(function (item) {
+    console.log(item.name);
+    })
+
+    // Con EC6 hacemos Arrow Function que tambien son anonimas
+    // Se llama arrow function por la sintaxis =>
+    //Esto seria lo mismo de la function anterior
+    let listOfNames2 = names.map(item => console.log(item.name));
+
+    //La listaOfNames2 representaba el caso de un solo elemento, pero arroy function puede hacerce con varios elementos así:
+    const listOfNames3 = (name, age, country) => {
+    ... //Aca va la function  correspondiente
+    }
+    
+    // Cuando solo se pasa un solo elemetnto 
+    const listOfNames4 = name => {
+    ...
+    }
+
+    // Utilizadon arroy function con una nueva funtion ya no se usa bloque de llaves {}
+    const square = num => num * num;
+
+//PROMESAS
+// Con esta vamos a trabajar el asincronismos, ya que JavaScript no es sincronico solo ejecuta un proceso a la vez
+    
+    // La promesa tiene dos posibles opciones, sea rechazada o aceptada
+    const helloPromise = () => {
+    return new Promise((resolve, reject) => {
+        if (true) {
+        resolve('Hey!');
+        } else {
+        reject('Ups!!');
+        }
+    });
+    }
+
+    helloPromise()
+    //Aca obtendriamos la respuesta, ya sea la promesa positiva o resuelta con .then ( ten presente que . then se puede agregar mas de uno) y en le caso negativa o rechazada con .catch 
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+
+//CLASES EN JAVASCRIPT
+    class calculator {
+    constructor() {
+        this.valueA = 0;
+        this.valueB = 0;
+    }
+    sum(valueA, valueB) {
+        this.valueA = valueA;
+        this.valueB = valueB;
+        return this.valueA + this.valueB;
+    }
+    }
+
+    const calc = new calculator();
+    console.log(calc.sum(2, 2));
+
+    import { hello } from './module';
+
+    hello();
+
+    function* helloWorld() {
+    if (true) {
+        yield 'Hello, ';
+    }
+    if (true) {
+        yield 'World';
+    }
+    };
+
+    const generatorHello = helloWorld();
+    console.log(generatorHello.next().value);
+    console.log(generatorHello.next().value);
+    console.log(generatorHello.next().value);
