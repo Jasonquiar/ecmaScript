@@ -37,60 +37,60 @@
     console.log(epicPhrase2);
 
 
-//Forma de hacer un string antes de ES6
-let lorem = "Qui consequatur. Commodi. Ipsum vel duis yet minima \n"
-+ "otra frase epica que necesitamos."
+//Forma de hacer un string antes de ES6 con el \n
+    let lorem = "Qui consequatur. Commodi. Ipsum vel duis yet minima \n"
+    + "otra frase epica que necesitamos."
 
-// Con EC6
-let lorem2 = `otra frase epica que necesitamos
-ahora es otra frase epica
-`;
+    // Con EC6
+    let lorem2 = `otra frase epica que necesitamos
+    ahora es otra frase epica
+    `;
 
-console.log(lorem);
-console.log(lorem2);
+    console.log(lorem);
+    console.log(lorem2);
 
 
-//DETRUCCTURACIÓN
-//tenemos un objeto
-let person = {
-'name': 'oscar',
-'age': 32,
-'country': 'MX'
-}
+//DETRUCCTURACIÓN DE ELEMENTOS
+    //tenemos un objeto
+    let person = {
+    'name': 'oscar',
+    'age': 32,
+    'country': 'MX'
+    }
 
-// Antes de ES6
-console.log(person.name, person.age);
+    // Antes de ES6
+    console.log(person.name, person.age);
 
-//Con ES6 lo obtenemos del objeto   
-let { name, age} = person;
-console.log(name, age);
+    //Con ES6 lo obtenemos del objeto   
+    let { name, age} = person;
+    console.log(name, age);
 
 // Operador de propagacion - Spread Operator
-let team1 = ['Oscar', 'Julian', 'Ricardo'];
-let team2 = ['Valeria', 'Yesica', 'Camila'];
+    let team1 = ['Oscar', 'Julian', 'Ricardo'];
+    let team2 = ['Valeria', 'Yesica', 'Camila'];
 
-//Antes de ES6 se tenia que colocar cada uno de los elementos dentro del nuevo array en forma manueal,
-//ahora con los puntos suspensivos invocan al arreglo que queremos vincular en educación
+    //Antes de ES6 se tenia que colocar cada uno de los elementos dentro del nuevo array en forma manual,
+    //ahora con los puntos suspensivos invocan al arreglo que queremos vincular en educación
+    let education = ['David', ...team1, ...team2];
 
-let education = ['David', ...team1, ...team2];
-
-console.log(education);
+    console.log(education);
 
 
 //Explicando el Hoisting  y el scope con diferentes bloques
-{
-var globalVar = "Global Var"; 
-}
+    {
+        // la palabra reservada var tiene un hoisting global y se monto en el objeto global This
+        var globalVar = "Global Var"; 
+    }
 
-{
-let globalLet = 'Global Let';
-//esta constante solo puede ser invocada dentro de este scope si esta por fuera seria un undefine
-console.log(globalLet);
-}
+    {
+        // la palabra reservada let tiene hosting local esta constante solo puede ser invocada dentro de este scope o bloque, si esta por fuera seria un undefined
+        let globalLet = 'Global Let';
+        console.log(globalLet);
+    }
 
-console.log(globalVar);
+    console.log(globalVar);
 
-// const sera una variable que no se puede cambiar este codigo nos generaria error
-const a = 'b';
-a = 'a';
-console.log(a);
+    // const sera una variable que no se puede cambiar este codigo nos generaria ERROR
+    const a = 'b';
+    a = 'a';
+    console.log(a);
